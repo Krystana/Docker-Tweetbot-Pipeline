@@ -3,7 +3,7 @@ my projects
 
 02/21
 
-In this repository you can have a look at the projects I realised so far. 
+In my repositories you can have a look at the projects I realised so far. 
 
 I just started coding recently and in the moment I am attending the SPICED ACADEMY Data Science Bootcamp --> https://www.spiced-academy.com/en/program/data-science.
 
