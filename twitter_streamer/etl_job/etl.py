@@ -9,10 +9,8 @@ import logging
 # logging criteria:
 logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s', level=logging.INFO, datefmt='%Y-%m-%d %H:%M:%S') # filename='debug.log',
 
-
 # analyzser for sentiment analysis:
 analyzer = SentimentIntensityAnalyzer()
-
 
 # mongodb connection: 
 time.sleep(10)
@@ -28,7 +26,6 @@ time.sleep(5)
 
 pg = create_engine('postgres://bird:bird@postgresdb:5432/tweet_db', echo=False)
 logging.info('postgresdb engine set')
-
 
 # create dataframe of list of tweets (pandas):
 def create_df(collection):
@@ -57,7 +54,6 @@ def sentiments_to_df(df):
 
 #transform dataframe to postgres table: 
 def df_to_sql(df):
-
 
     df.to_sql('tweets', pg, if_exists='replace')
     logging.warning('table created')

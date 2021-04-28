@@ -13,23 +13,20 @@ using some of tweepy's built-in Classes:
 After each relevant, incoming tweet is intercepted and parsed, it is printed
 in the terminal (print is the default callback function). The keyword can be
 altered at the end of the script.
+The filtered tweets are inserted to a MongoDB collection. 
 """
 
 import json
 import config
-
 from tweepy import OAuthHandler, Stream
 from tweepy.streaming import StreamListener
-
 import logging
 import time
-
 import pymongo
 from pymongo import MongoClient
 
 # logging criteria:
 logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s', level=logging.INFO, datefmt='%Y-%m-%d %H:%M:%S') # filename='debug.log',
-
 logging.critical('starting streamer')
 
 #create connection to mongodb server: 
@@ -40,7 +37,6 @@ db = client.tweets_1
 
 #define the collection: (equivalent to create table)
 collection = db.tweet_data_1
-
 
 LANGUAGES = ['en']
 
@@ -202,9 +198,6 @@ class TwitterStreamer():
         auth = self.twitter_authenticator.authenticate()
         stream = Stream(auth, listener)
         stream.filter(track=self.keywords, languages=LANGUAGES)
-
-
-        
 
 if __name__ == "__main__":
 

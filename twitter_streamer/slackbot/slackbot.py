@@ -5,8 +5,6 @@ import time
 import pandas as pd
 import logging
 
-
-
 # logging criteria:
 logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s', level=logging.INFO, datefmt='%Y-%m-%d %H:%M:%S') # filename='debug.log',
 
@@ -38,7 +36,6 @@ while True:
 
 	# get value of text and sentiment
 	text_tweet = tweet['text'].iloc[0]
-
 	senti_tweet =  tweet['sentiment'].iloc[0]
 
 	data = {
@@ -59,9 +56,7 @@ while True:
 			}
 		]
 	}
-	
+	# post tweet via slackbot
 	requests.post(url=webhook_url, json = data)
-
 	logging.critical('tweet displayed via slackbot')
-
-	time.sleep(600)         # timer 120
+	time.sleep(600)         
