@@ -67,15 +67,10 @@ def main_code():
     while times_to_repeat >= 0:
 
         df = create_df(collection)
-
         df = sentiments_to_df(df)
-
         df_to_sql(df)
-
         times_to_repeat -= 1
-
         logging.critical('times to repeat left = {}'.format(times_to_repeat))
-
         time.sleep(70) #60
 
 time.sleep(10)
